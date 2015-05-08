@@ -10,6 +10,15 @@ This example uses CentOS 6.3 as base image to validate whether Mesos/Marathon ca
 - Vagrant (https://www.vagrantup.com/)
 - Virtualbox (https://www.virtualbox.org/)
 
+To access each node from your host browser, add following to your host file 
+/etc/hosts
+```
+192.168.50.5 mesos-master mesos-master
+192.168.50.6 mesos-slave-1 mesos-slave-1
+192.168.50.7 mesos-slave-2 mesos-slave-2
+192.168.50.8 mesos-slave-3 mesos-slave-3
+```
+
 
 2. Start & Stop VMs
 -----------------------------
@@ -101,6 +110,12 @@ curl -i -H "Content-Type: application/json" -X PUT \
   "uris": ["http://downloads.mesosphere.io/tutorials/PlayHello.zip"]
 }' http://192.168.50.5:8080/v2/apps/hello
 ```
+
+curl -i -H "Content-Type: application/json" -X PUT \
+ --data '{
+  "instances": 2
+}' http://192.168.50.5:8080/v2/apps/hello
+
 
 ### 5-3. Destroy instances
 To destroy app:
