@@ -33,9 +33,9 @@ To access mesos master VM
 vagrant ssh mesos-master
 ```
 
-To access mesos worker VM
+To access mesos slave VM
 ```
-vagrant ssh mesos-worker-1
+vagrant ssh mesos-slave-1
 ```
 
 
